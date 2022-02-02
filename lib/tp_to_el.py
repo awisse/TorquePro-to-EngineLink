@@ -138,7 +138,7 @@ def main():
     tp_path = args.tp_file
 
     el_name = f'{Path(args.tp_file).stem}-EL.csv'
-    el_path = args.target_dir.joinpath(el_name)
+    el_path = Path(args.target_dir).joinpath(el_name)
 
     # Opening TorquePro file for reading
     with open(tp_path, mode='r', errors='replace',
