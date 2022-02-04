@@ -11,4 +11,4 @@ readable by the [EngineLink](http://outdoor-apps.com/enginelink.html) app on iOS
 The program accepts a `<name>.csv` file in TorquePro format. The result is saved in the file `<name>-EL.csv` in the directory
 specified in the option `--target-dir`. The default for `--target-dir` is the current directory.
 
-`tp2el.py <name>.csv`
+`tp-2-el.py <name>.csv`
