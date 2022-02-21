@@ -14,6 +14,7 @@ The TorquePro filename must be <name>.csv. The resuluting filename will be
 import argparse
 import csv
 import re
+import sys
 from pathlib import Path
 
 # Field Names
@@ -40,7 +41,7 @@ def int16_conv(matchobj):
     """
     `matchobj`: re.match expression.
     Returns a formula that computes the 16 bit integer from the
-    two bytes in expr.
+    two bytes in the expression.
     """
     formula = '({}*256+{})'.format(*matchobj.groups())
     return formula
@@ -49,7 +50,7 @@ def int32_conv(matchobj):
     """
     `matchobj`: re.match expression
     Returns a formula that computes the 32 bit integer from the
-    two bytes in expr.
+    four bytes in the expression.
     """
     formula = '((({}*256+{})*256+{})*256+{})'.format(*matchobj.groups())
     return formula
@@ -160,7 +161,31 @@ def prepare_options():
                         type=dir_argument,
                         default=Path('.'))
 
+    parser.add_argument('--to-stdout', '-O',
+                        help=('Write the resulting file to stdout and *not* '
+                              'to a .csv file.'),
+                        action='store_true',
+                        default=False)
     return parser
+
+def process_file(tp_file, el_file):
+    """
+    `tp_file`: Readable file object.
+    `el_file`: Writable file object.
+    Read every line from the `tp_file` and write the EngineLink version
+    to the `el_file`.
+    """
+    # Storage for variables
+    variables = {}
+
+    # CSV file reader and writer
+    reader = csv.DictReader(tp_file, fieldnames=TP_FIELDS, delimiter=',')
+    writer = csv.DictWriter(el_file, EL_FIELDS, delimiter=',')
+    writer.writerow(dict(zip(EL_FIELDS, EL_FIELDS)))
+
+    for tp_row in reader:
+        el_row = torquepro_to_enginelink_row(tp_row, variables)
+        writer.writerow(el_row)
 
 def main():
     """
@@ -170,23 +195,27 @@ def main():
     parser = prepare_options()
     args = parser.parse_args()
 
-    # Storage for variables
-    variables = {}
-
-    # Output Filename
+    # Input Filename
     tp_path = args.tp_file
 
-    el_name = f'{Path(args.tp_file).stem}-EL.csv'
-    el_path = args.target_dir.joinpath(el_name)
-
     # Opening TorquePro file for reading
-    with open(tp_path, mode='r', errors='replace',
-              newline='') as tp_file:
-        reader = csv.DictReader(tp_file, fieldnames=TP_FIELDS, delimiter=',')
-        # Opening EngineLink file for writing
-        with open(el_path, mode='w', newline='') as el_file:
-            writer = csv.DictWriter(el_file, EL_FIELDS, delimiter=',')
-            writer.writerow(dict(zip(EL_FIELDS, EL_FIELDS)))
-            for tp_row in reader:
-                el_row = torquepro_to_enginelink_row(tp_row, variables)
-                writer.writerow(el_row)
+    tp_file = open(tp_path, mode='r', errors='replace', newline='')
+
+    # Opening EngineLink file for writing
+    if args.to_stdout:
+        el_file = sys.stdout
+    else:
+        el_name = f'{tp_path.stem}-EL.csv'
+        el_path = args.target_dir.joinpath(el_name)
+        try:
+            el_file = open(el_path, mode='w', newline='')
+        except OSError:
+            sys.stderr.write(f'The file "{el_name}" cannot be written\n')
+            sys.exit(1)
+
+    # Convert the lines
+    process_file(tp_file, el_file)
+
+    tp_file.close()
+    if not args.to_stdout:
+        el_file.close()
