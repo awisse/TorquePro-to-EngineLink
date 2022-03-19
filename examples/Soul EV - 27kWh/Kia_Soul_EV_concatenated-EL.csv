@@ -1,0 +1,219 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+2105,Airbag,50,100,,w,7E4
+2101,Aux Batt Volts,11,14.6,V,ad*0.1,7E4
+2101,Max REGEN,0,98,kW,(f*256+g)/100,7E4
+2101,Max POWER,0,98,kW,(h*256+i)/100,7E4
+2101,BMS Ignit.,0,1,,{ay:2},7E4
+2101,BMS Relay,0,1,,{j:0},7E4
+2105,V Diff,0,0.5,V,u/50,7E4
+2101,Batt Current,-230,230,A,((SIGNED(K)*256)+L)/10,7E4
+2101,Batt Volts,268.8,403.2,V,(m*256+n)/10,7E4
+2101,Batt Fan SPD,0,120,Hz,ac,7E4
+2101,Batt Fan MOD,0,9,,ab,7E4
+2105,Heater Temp1,0,30,C,SIGNED(X),7E4
+2105,Heater Temp2,0,30,C,SIGNED(Y),7E4
+2101,Batt InletT,-40,80,C,SIGNED(W),7E4
+2101,Batt MaxT,-40,80,C,SIGNED(O),7E4
+2101,Batt MinT,-40,80,C,SIGNED(P),7E4
+2101,Batt Temp1,-40,80,C,SIGNED(Q),7E4
+2101,Batt Temp2,-40,80,C,SIGNED(R),7E4
+2101,Batt Temp3,-40,80,C,SIGNED(S),7E4
+2101,Batt Temp4,-40,80,C,SIGNED(T),7E4
+2101,Batt Temp5,-40,80,C,SIGNED(U),7E4
+2105,Batt Temp6,-40,80,C,SIGNED(J),7E4
+2105,Batt Temp7,-40,80,C,SIGNED(K),7E4
+2105,Batt Temp8,-40,80,C,SIGNED(L),7E4
+,Energy Draw,-90,90,kW,[Batt Current]*[Batt Volts]/1000,7E4
+2102,Cell 01,2.80,4.20,V,e/50,7E4
+2102,Cell 02,2.80,4.20,V,f/50,7E4
+2102,Cell 03,2.80,4.20,V,g/50,7E4
+2102,Cell 04,2.80,4.20,V,h/50,7E4
+2102,Cell 05,2.80,4.20,V,i/50,7E4
+2102,Cell 06,2.80,4.20,V,j/50,7E4
+2102,Cell 07,2.80,4.20,V,k/50,7E4
+2102,Cell 08,2.80,4.20,V,l/50,7E4
+2102,Cell 09,2.80,4.20,V,m/50,7E4
+2102,Cell 10,2.80,4.20,V,n/50,7E4
+2102,Cell 11,2.80,4.20,V,o/50,7E4
+2102,Cell 12,2.80,4.20,V,p/50,7E4
+2102,Cell 13,2.80,4.20,V,q/50,7E4
+2102,Cell 14,2.80,4.20,V,r/50,7E4
+2102,Cell 15,2.80,4.20,V,s/50,7E4
+2102,Cell 16,2.80,4.20,V,t/50,7E4
+2102,Cell 17,2.80,4.20,V,u/50,7E4
+2102,Cell 18,2.80,4.20,V,v/50,7E4
+2102,Cell 19,2.80,4.20,V,w/50,7E4
+2102,Cell 20,2.80,4.20,V,x/50,7E4
+2102,Cell 21,2.80,4.20,V,y/50,7E4
+2102,Cell 22,2.80,4.20,V,z/50,7E4
+2102,Cell 23,2.80,4.20,V,aa/50,7E4
+2102,Cell 24,2.80,4.20,V,ab/50,7E4
+2102,Cell 25,2.80,4.20,V,ac/50,7E4
+2102,Cell 26,2.80,4.20,V,ad/50,7E4
+2102,Cell 27,2.80,4.20,V,ae/50,7E4
+2102,Cell 28,2.80,4.20,V,af/50,7E4
+2102,Cell 29,2.80,4.20,V,ag/50,7E4
+2102,Cell 30,2.80,4.20,V,ah/50,7E4
+2102,Cell 31,2.80,4.20,V,ai/50,7E4
+2102,Cell 32,2.80,4.20,V,aj/50,7E4
+2103,Cell 33,2.80,4.20,V,e/50,7E4
+2103,Cell 34,2.80,4.20,V,f/50,7E4
+2103,Cell 35,2.80,4.20,V,g/50,7E4
+2103,Cell 36,2.80,4.20,V,h/50,7E4
+2103,Cell 37,2.80,4.20,V,i/50,7E4
+2103,Cell 38,2.80,4.20,V,j/50,7E4
+2103,Cell 39,2.80,4.20,V,k/50,7E4
+2103,Cell 40,2.80,4.20,V,l/50,7E4
+2103,Cell 41,2.80,4.20,V,m/50,7E4
+2103,Cell 42,2.80,4.20,V,n/50,7E4
+2103,Cell 43,2.80,4.20,V,o/50,7E4
+2103,Cell 44,2.80,4.20,V,p/50,7E4
+2103,Cell 45,2.80,4.20,V,q/50,7E4
+2103,Cell 46,2.80,4.20,V,r/50,7E4
+2103,Cell 47,2.80,4.20,V,s/50,7E4
+2103,Cell 48,2.80,4.20,V,t/50,7E4
+2103,Cell 49,2.80,4.20,V,u/50,7E4
+2103,Cell 50,2.80,4.20,V,v/50,7E4
+2103,Cell 51,2.80,4.20,V,w/50,7E4
+2103,Cell 52,2.80,4.20,V,x/50,7E4
+2103,Cell 53,2.80,4.20,V,y/50,7E4
+2103,Cell 54,2.80,4.20,V,z/50,7E4
+2103,Cell 55,2.80,4.20,V,aa/50,7E4
+2103,Cell 56,2.80,4.20,V,ab/50,7E4
+2103,Cell 57,2.80,4.20,V,ac/50,7E4
+2103,Cell 58,2.80,4.20,V,ad/50,7E4
+2103,Cell 59,2.80,4.20,V,ae/50,7E4
+2103,Cell 60,2.80,4.20,V,af/50,7E4
+2103,Cell 61,2.80,4.20,V,ag/50,7E4
+2103,Cell 62,2.80,4.20,V,ah/50,7E4
+2103,Cell 63,2.80,4.20,V,ai/50,7E4
+2103,Cell 64,2.80,4.20,V,aj/50,7E4
+2104,Cell 65,2.80,4.20,V,e/50,7E4
+2104,Cell 66,2.80,4.20,V,f/50,7E4
+2104,Cell 67,2.80,4.20,V,g/50,7E4
+2104,Cell 68,2.80,4.20,V,h/50,7E4
+2104,Cell 69,2.80,4.20,V,i/50,7E4
+2104,Cell 70,2.80,4.20,V,j/50,7E4
+2104,Cell 71,2.80,4.20,V,k/50,7E4
+2104,Cell 72,2.80,4.20,V,l/50,7E4
+2104,Cell 73,2.80,4.20,V,m/50,7E4
+2104,Cell 74,2.80,4.20,V,n/50,7E4
+2104,Cell 75,2.80,4.20,V,o/50,7E4
+2104,Cell 76,2.80,4.20,V,p/50,7E4
+2104,Cell 77,2.80,4.20,V,q/50,7E4
+2104,Cell 78,2.80,4.20,V,r/50,7E4
+2104,Cell 79,2.80,4.20,V,s/50,7E4
+2104,Cell 80,2.80,4.20,V,t/50,7E4
+2104,Cell 81,2.80,4.20,V,u/50,7E4
+2104,Cell 82,2.80,4.20,V,v/50,7E4
+2104,Cell 83,2.80,4.20,V,w/50,7E4
+2104,Cell 84,2.80,4.20,V,x/50,7E4
+2104,Cell 85,2.80,4.20,V,y/50,7E4
+2104,Cell 86,2.80,4.20,V,z/50,7E4
+2104,Cell 87,2.80,4.20,V,aa/50,7E4
+2104,Cell 88,2.80,4.20,V,ab/50,7E4
+2104,Cell 89,2.80,4.20,V,ac/50,7E4
+2104,Cell 90,2.80,4.20,V,ad/50,7E4
+2104,Cell 91,2.80,4.20,V,ae/50,7E4
+2104,Cell 92,2.80,4.20,V,af/50,7E4
+2104,Cell 93,2.80,4.20,V,ag/50,7E4
+2104,Cell 94,2.80,4.20,V,ah/50,7E4
+2104,Cell 95,2.80,4.20,V,ai/50,7E4
+2104,Cell 96,2.80,4.20,V,aj/50,7E4
+2101,CCC,0,1000000,Ah,(((ae*256+af)*256+ag)*256+ah)/10,7E4
+2101,CDC,0,1000000,Ah,(((ai*256+aj)*256+ak)*256+al)/10,7E4
+2101,CEC,0,1000000,kWh,(((am*256+an)*256+ao)*256+ap)/10,7E4
+2101,CED,0,1000000,kWh,(((aq*256+ar)*256+as)*256+at)/10,7E4
+2101,Motor RPM 1,-10100,10100,rpm,(SIGNED(BB)*256)+BC,7E4
+2101,Motor RPM 2,-10100,10100,rpm,(SIGNED(BD)*256))+BE,7E4
+2101,Charging,0,1,,{j:7},7E4
+2101,BMS Capacitor,0,500,V,(az*256+ba),7E4
+2101,Surge Resistor,0,1000,kOhm,(bf*256+bg),7E4
+2101,Max Cell V No.,0,96,,y,7E4
+2101,Max Cell V,2.8,4.2,V,x/50,7E4
+2105,Max Det Cell No.,0,96,,ab,7E4
+2105,Max Det,0,100,%,(z*256+aa)/10,7E4
+2101,Min Cell V No.,0,96,,aa,7E4
+2101,Min Cell V,2.8,4.2,V,z/50,7E4
+2105,Min Det Cell No.,0,96,,ae,7E4
+2105,Min Det,0,100,%,(ac*256+ad)/10,7E4
+2101,J1772 Plug,0,1,,{j:5},7E4
+2101,OpSecs,0,1000000000,seconds,(((au*256+av)*256+aw)*256+ax),7E4
+,OpTime,0,1000000,hours,[OpSecs]/3600,7E4
+2101,Chademo Plug,0,1,,{j:6},7E4
+2101,SOC BMS,0,100,%,e/2,7E4
+2105,SOC Display,0,100,%,af/2,7E4
+2106,TPMS_ID_BL,0,100,,(((q*256+r)*256+s)*256+t),7D6
+2106,TPMS_ID_BR,0,100,,(((y*256+z)*256+aa)*256+ab),7D6
+2106,TPMS_ID_FL,0,100,,(((a*256+b)*256+c)*256+d),7D6
+2106,TPMS_ID_FR,0,100,,(((i*256+j)*256+k)*256+l),7D6
+2106,Tire Pre_BL,0.00,120.00,psi,u/4,7D6
+2106,Tire Pre_BR,0.00,120.00,psi,ac/4,7D6
+2106,Tire Pre_FL,0.00,120.00,psi,e/4,7D6
+2106,Tire Pre_FR,0.00,120.00,psi,m/4,7D6
+2106,Tire Temp_BL,-40,65,C,v-55,7D6
+2106,Tire Temp_BR,-40,65,C,ad-55,7D6
+2106,Tire Temp_FL,-40,65,C,f-55,7D6
+2106,Tire Temp_FR,-40,65,C,n-55,7D6
+22b002,Clu1,0,255,?,e,7c6
+22b002,Clu2,0,255,?,f,7c6
+2102,OBC Water,-40,80,C,SIGNED(U),794
+2102,OBC heatsink,-40,80,C,SIGNED(S),794
+2102,OBC inside,-40,80,C,SIGNED(T),794
+2102,Amps_Limit,0,52,A,val{002_OBC_Pilot_Duty_Cycle}*0.6,794
+2102,ChargeAmps,0,400,A,(o*256+p)/10,794
+,ChargePower,0,400,kW,([ChargeAmps]*val{002_OBC_Charging_Voltage})/1000,794
+2102,ChargeVolts,0,400,V,(g*256+h)/10,794
+,OBC_Efficiency,0,100,%,ABS([Energy Draw]/[ChargePower])*100,794
+2102,OutputVolts,0,400,V,(m*256+n)/10,794
+2102,Pilot_Duty,0,86,%,r/3,794
+2101,Pedal,0,100,%,j/2,7E2
+2101,Pedal related,0,255,,i,7E2
+2102,VMCU 12V Batt,0,25,V,e/10,7E2
+2100,B,0,1,,{h:4},7E2
+2100,Brake lamp,0,1,,{j:0},7E2
+2100,Brakes On,0,1,,({j:1} -1) * -1,7E2
+2100,Timer,0,1,,({h:6} -1) * -1,7E2
+2100,D,0,1,,{h:3},7E2
+2102,EWP Target,0,190,,h,7E2
+2100,EWP,0,1,,{n:2},7E2
+2102,EWP speed,0,190,,g,7E2
+2100,Eco,0,1,,({h:5} -1) * -1,7E2
+2102,Est. Torque,-3000,3000,Nm,(SIGNED(N)*256)+M,7E2
+2102,Heat sink,-40,80,C,y-40,7E2
+2100,VMCU Ignit.,0,1,,{n:4},7E2
+,Energy Consumption,0,120,kWh/100km,[Energy Draw]*val{003_VMCU Real Vehicle speed}/100,7E2
+,Energy Economy,0,16,km/kWh,val{003_VMCU Real Vehicle Speed}/[Energy Draw],7E2
+2102,Inverter,0,360,V,f*2,7E2
+2102,MCU temp,-40,80,C,x-40,7E2
+2102,Speed rpm,-10100,10100,rpm,(SIGNED(J)*256)+I,7E2
+2102,Phase Current RMS,0,5000,rms,(v*256+u),7E2
+2102,Resolver Offset,0,1000,,(ad*256+ac),7E2
+2102,Motor temp,-40,125,C,w-40,7E2
+2102,Torque Command,-3000,3000,Nm,(SIGNED(L)*256)+K,7E2
+2102,U Phase,0,1000,,(aa*256+z),7E2
+2102,V Phase,0,1000,,(ac*256+ab),7E2
+2100,N,0,1,,{h:2},7E2
+2100,P,0,1,,{h:0},7E2
+2100,R,0,1,,{h:1},7E2
+2100,Radiator Fan,0,1,,{n:3},7E2
+2101,Real Speed,0,180,km/h,k,7E2
+,Average DET,0.0,100.0,%,([Max Det]+[Min Det])/2,7E2
+,Batt AvgT,-40.0,80.0,C,([Batt Temp1]+[Batt Temp2]+[Batt Temp3]+[Batt Temp4]+[Batt Temp5]+[Batt Temp6]+[Batt Temp7]+[Batt Temp8])/8.0,7E4
+,Avg Cell V,2.800,4.200,V,[Batt Volts]/96,7E4
+,AC Charging,0,1,,[Charging]*[J1772 Plug],7E2
+,DCQC Charging,0,1,,[Charging]*[Chademo Plug],7E2
+,DCQC Current,0,230,A,ABS([Batt Current])*[DCQC Charging],7E4
+,DCQC Power,0,90,kW,[DCQC Current]*val{004_CALC Rapid Port Voltage}/1000,7E4
+,DCQC Volts,268.8,403.2,V,ABS([Batt Volts])*[DCQC Charging],7E4
+,SOH,0.0,110.0,%,110-[Max Det],7E2
+,SOH2,0.0,110.0,%,110-[Average DET],7E2
+2101,LDC AmpsOut,0,80,A,g,7C5
+2101,LDC VoltsIn,0,403,V,h*2,7C5
+2101,LDC VoltsOut,0.0,14.6,V,f/10,7C5
+2101,LDC Temp 1,-40,80,C,i-100,7C5
+,LDC_Power,0.0,1100.0,W,[LDC VoltsOut]*[LDC AmpsOut],7C5
+ 0902, Base Trim, 0, 1, , ABS(val{005_PlusTrim} - 1), 7E2
+ 0902, Plus Trim, 0, 1, , {F:3}, 7E2
+ 0902, Seq No, 0, 999999, , ((M - 48) * 100000) + ((N - 48) * 10000) + ((O - 48) * 1000) + ((P - 48) *100) + ((Q - 48) * 10) + (R - 48), 7E2
+ 0902, Year, 2014, 2035, , K+1945, 7E2

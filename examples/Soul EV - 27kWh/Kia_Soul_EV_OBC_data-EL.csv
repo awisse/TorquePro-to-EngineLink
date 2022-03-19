@@ -1,0 +1,10 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+2102,ChargeVolts,0,400,V,(g*256+h)/10,794
+2102,OutputVolts,0,400,V,(m*256+n)/10,794
+2102,ChargeAmps,0,400,A,(o*256+p)/10,794
+2102,Pilot_Duty,0,86,%,r/3,794
+2102,OBC heatsink,-40,80,C,SIGNED(S),794
+2102,OBC inside,-40,80,C,SIGNED(T),794
+2102,OBC Water,-40,80,C,SIGNED(U),794
+,ChargePower,0,400,kW,([ChargeAmps]*[ChargeVolts])/1000,794
+,Amps_Limit,0,52,A,[Pilot_Duty]*0.6,794

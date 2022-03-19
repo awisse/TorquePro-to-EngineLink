@@ -1,0 +1,6 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+2101,LDC AmpsOut,0,80,A,g,7C5
+2101,LDC VoltsOut,0.0,14.6,V,f/10,7C5
+2101,LDC VoltsIn,0,403,V,h*2,7C5
+2101,LDC Temp 1,-40,80,C,i-100,7C5
+,LDC_Power,0.0,1100.0,W,[LDC VoltsOut]*[LDC AmpsOut],7C5

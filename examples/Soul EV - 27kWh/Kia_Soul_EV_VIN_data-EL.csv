@@ -1,0 +1,5 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+ 0902, Base Trim, 0, 1, , ABS(val{005_PlusTrim} - 1), 7E2
+ 0902, Plus Trim, 0, 1, , {F:3}, 7E2
+ 0902, Seq No, 0, 999999, , ((M - 48) * 100000) + ((N - 48) * 10000) + ((O - 48) * 1000) + ((P - 48) *100) + ((Q - 48) * 10) + (R - 48), 7E2
+ 0902, Year, 2014, 2035, , K+1945, 7E2

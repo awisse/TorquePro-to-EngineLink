@@ -1,0 +1,11 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+2101,Batt AvgT,-40.0,80.0,C,(val{000_Battery Module 1 Temperature}+val{000_Battery Module 2 Temperature}+val{000_Battery Module 3 Temperature}+val{000_Battery Module 4 Temperature}+val{000_Battery Module 5 Temperature}+val{000_Battery Module 6 Temperature}+val{000_Battery Module 7 Temperature}+val{000_Battery Module 8 Temperature})/8.0,7E4
+2101,Avg Cell V,2.800,4.200,V,val{000_Battery DC Voltage}/96,7E4
+2101,Average DET,0.0,100.0,%,(val{000_Maximum Deterioration}+val{000_Minimum Deterioration})/2,7E2
+2101,AC Charging,0,1,,val{000_HV_Charging}*val{000_Normal Charge Port},7E2
+2101,DCQC Charging,0,1,,val{000_HV_Charging}*val{000_Rapid Charge Port},7E2
+,DCQC Current,0,230,A,ABS(val{000_Battery Current})*[DCQC Charging],7E4
+,DCQC Volts,268.8,403.2,V,ABS(val{000_Battery DC Voltage})*[DCQC Charging],7E4
+,DCQC Power,0,90,kW,[DCQC Current]*[DCQC Volts]/1000,7E4
+2101,SOH,0.0,110.0,%,110-val{000_Maximum Deterioration},7E2
+,SOH2,0.0,110.0,%,110-[Average DET],7E2

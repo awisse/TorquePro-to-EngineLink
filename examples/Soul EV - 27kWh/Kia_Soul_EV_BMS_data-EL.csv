@@ -1,0 +1,49 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+2105,Airbag,50,100,,w,7E4
+2101,Aux Batt Volts,11,14.6,V,ad*0.1,7E4
+2101,Max REGEN,0,98,kW,(f*256+g)/100,7E4
+2101,Max POWER,0,98,kW,(h*256+i)/100,7E4
+2105,V Diff,0,0.5,V,u/50,7E4
+2101,Batt Current,-230,230,A,((SIGNED(K)*256)+L)/10,7E4
+2101,Batt Volts,268.8,403.2,V,(m*256+n)/10,7E4
+2101,Batt Fan SPD,0,120,Hz,ac,7E4
+2101,Batt Fan MOD,0,9,,ab,7E4
+2105,Heater Temp1,0,30,C,SIGNED(X),7E4
+2105,Heater Temp2,0,30,C,SIGNED(Y),7E4
+2101,Batt InletT,-40,80,C,SIGNED(W),7E4
+2101,Batt MaxT,-40,80,C,SIGNED(O),7E4
+2101,Batt MinT,-40,80,C,SIGNED(P),7E4
+2101,Batt Temp1,-40,80,C,SIGNED(Q),7E4
+2101,Batt Temp2,-40,80,C,SIGNED(R),7E4
+2101,Batt Temp3,-40,80,C,SIGNED(S),7E4
+2101,Batt Temp4,-40,80,C,SIGNED(T),7E4
+2101,Batt Temp5,-40,80,C,SIGNED(U),7E4
+2105,Batt Temp6,-40,80,C,SIGNED(J),7E4
+2105,Batt Temp7,-40,80,C,SIGNED(K),7E4
+2105,Batt Temp8,-40,80,C,SIGNED(L),7E4
+,Energy Draw,-90,90,kW,[Batt Current]*[Batt Volts]/1000,7E4
+2101,BMS Ignit.,0,1,,{ay:2},7E4
+2101,BMS Relay,0,1,,{j:0},7E4
+2101,CCC,0,1000000,Ah,(((ae*256+af)*256+ag)*256+ah)/10,7E4
+2101,CDC,0,1000000,Ah,(((ai*256+aj)*256+ak)*256+al)/10,7E4
+2101,CEC,0,1000000,kWh,(((am*256+an)*256+ao)*256+ap)/10,7E4
+2101,CED,0,1000000,kWh,(((aq*256+ar)*256+as)*256+at)/10,7E4
+2101,Motor RPM 1,-10100,10100,rpm,(SIGNED(BB)*256)+BC,7E4
+2101,Motor RPM 2,-10100,10100,rpm,(SIGNED(BD)*256))+BE,7E4
+2101,Charging,0,1,,{j:7},7E4
+2101,BMS Capacitor,0,500,V,(az*256+ba),7E4
+2101,Surge Resistor,0,1000,kOhm,(bf*256+bg),7E4
+2101,Max Cell V,2.8,4.2,V,x/50,7E4
+2101,Max Cell V No.,0,96,,y,7E4
+2105,Max Det,0,100,%,(z*256+aa)/10,7E4
+2105,Max Det Cell No.,0,96,,ab,7E4
+2101,Min Cell V,2.8,4.2,V,z/50,7E4
+2101,Min Cell V No.,0,96,,aa,7E4
+2105,Min Det,0,100,%,(ac*256+ad)/10,7E4
+2105,Min Det Cell No.,0,96,,ae,7E4
+2101,J1772 Plug,0,1,,{j:5},7E4
+2101,OpSecs,0,1000000000,seconds,(((au*256+av)*256+aw)*256+ax),7E4
+,OpTime,0,1000000,hours,[OpSecs]/3600,7E4
+2101,Chademo Plug,0,1,,{j:6},7E4
+2101,SOC BMS,0,100,%,e/2,7E4
+2105,SOC Display,0,100,%,af/2,7E4

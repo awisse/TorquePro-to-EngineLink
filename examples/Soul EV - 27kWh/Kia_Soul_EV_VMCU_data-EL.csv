@@ -1,0 +1,32 @@
+ModePID,Description,Min,Max,Units,Formula,Header
+2101,Pedal,0,100,%,j/2,7E2
+2101,Pedal related,0,255,,i,7E2
+2102,VMCU 12V Batt,0,25,V,e/10,7E2
+2100,B,0,1,,{h:4},7E2
+2100,Brake lamp,0,1,,{j:0},7E2
+2100,Brakes On,0,1,,({j:1} -1) * -1,7E2
+2100,Timer,0,1,,({h:6} -1) * -1,7E2
+2102,EWP speed,0,190,,g,7E2
+2102,EWP Target,0,190,,h,7E2
+2100,D,0,1,,{h:3},7E2
+2100,Eco,0,1,,({h:5} -1) * -1,7E2
+2102,Est. Torque,-3000,3000,Nm,(SIGNED(N)*256)+M,7E2
+2100,EWP,0,1,,{n:2},7E2
+2102,Heat sink,-40,80,C,y-40,7E2
+2100,VMCU Ignit.,0,1,,{n:4},7E2
+2101,Energy Consumption,0,120,kWh/100km,val{000_Battery Power}*val{003_VMCU Real Vehicle speed}/100,7E2
+2101,Energy Economy,0,16,km/kWh,val{003_VMCU Real Vehicle Speed}/val{000_Battery Power},7E2
+2102,Inverter,0,360,V,f*2,7E2
+2102,MCU temp,-40,80,C,x-40,7E2
+2102,Speed rpm,-10100,10100,rpm,(SIGNED(J)*256)+I,7E2
+2102,Phase Current RMS,0,5000,rms,(v*256+u),7E2
+2102,Resolver Offset,0,1000,,(ad*256+ac),7E2
+2102,Motor temp,-40,125,C,w-40,7E2
+2102,Torque Command,-3000,3000,Nm,(SIGNED(L)*256)+K,7E2
+2102,U Phase,0,1000,,(aa*256+z),7E2
+2102,V Phase,0,1000,,(ac*256+ab),7E2
+2100,N,0,1,,{h:2},7E2
+2100,P,0,1,,{h:0},7E2
+2100,R,0,1,,{h:1},7E2
+2100,Radiator Fan,0,1,,{n:3},7E2
+2101,Real Speed,0,180,km/h,k,7E2
