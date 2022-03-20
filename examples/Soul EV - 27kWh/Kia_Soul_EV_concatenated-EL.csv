@@ -160,9 +160,9 @@ ModePID,Description,Min,Max,Units,Formula,Header
 2102,OBC Water,-40,80,C,SIGNED(U),794
 2102,OBC heatsink,-40,80,C,SIGNED(S),794
 2102,OBC inside,-40,80,C,SIGNED(T),794
-2102,Amps_Limit,0,52,A,val{002_OBC_Pilot_Duty_Cycle}*0.6,794
+,Amps_Limit,0,52,A,[Pilot_Duty]*0.6,794
 2102,ChargeAmps,0,400,A,(o*256+p)/10,794
-,ChargePower,0,400,kW,([ChargeAmps]*val{002_OBC_Charging_Voltage})/1000,794
+,ChargePower,0,400,kW,([ChargeAmps]*[ChargeVolts])/1000,794
 2102,ChargeVolts,0,400,V,(g*256+h)/10,794
 ,OBC_Efficiency,0,100,%,ABS([Energy Draw]/[ChargePower])*100,794
 2102,OutputVolts,0,400,V,(m*256+n)/10,794
@@ -182,8 +182,8 @@ ModePID,Description,Min,Max,Units,Formula,Header
 2102,Est. Torque,-3000,3000,Nm,(SIGNED(N)*256)+M,7E2
 2102,Heat sink,-40,80,C,y-40,7E2
 2100,VMCU Ignit.,0,1,,{n:4},7E2
-,Energy Consumption,0,120,kWh/100km,[Energy Draw]*val{003_VMCU Real Vehicle speed}/100,7E2
-,Energy Economy,0,16,km/kWh,val{003_VMCU Real Vehicle Speed}/[Energy Draw],7E2
+,Energy Consumption,0,120,kWh/100km,[Energy Draw]*[Real Speed]/100,7E2
+,Energy Economy,0,16,km/kWh,[Real Speed]/[Energy Draw],7E2
 2102,Inverter,0,360,V,f*2,7E2
 2102,MCU temp,-40,80,C,x-40,7E2
 2102,Speed rpm,-10100,10100,rpm,(SIGNED(J)*256)+I,7E2
@@ -204,7 +204,7 @@ ModePID,Description,Min,Max,Units,Formula,Header
 ,AC Charging,0,1,,[Charging]*[J1772 Plug],7E2
 ,DCQC Charging,0,1,,[Charging]*[Chademo Plug],7E2
 ,DCQC Current,0,230,A,ABS([Batt Current])*[DCQC Charging],7E4
-,DCQC Power,0,90,kW,[DCQC Current]*val{004_CALC Rapid Port Voltage}/1000,7E4
+,DCQC Power,0,90,kW,[DCQC Current]*[DCQC Volts]/1000,7E4
 ,DCQC Volts,268.8,403.2,V,ABS([Batt Volts])*[DCQC Charging],7E4
 ,SOH,0.0,110.0,%,110-[Max Det],7E2
 ,SOH2,0.0,110.0,%,110-[Average DET],7E2
@@ -213,7 +213,7 @@ ModePID,Description,Min,Max,Units,Formula,Header
 2101,LDC VoltsOut,0.0,14.6,V,f/10,7C5
 2101,LDC Temp 1,-40,80,C,i-100,7C5
 ,LDC_Power,0.0,1100.0,W,[LDC VoltsOut]*[LDC AmpsOut],7C5
- 0902, Base Trim, 0, 1, , ABS(val{005_PlusTrim} - 1), 7E2
- 0902, Plus Trim, 0, 1, , {F:3}, 7E2
- 0902, Seq No, 0, 999999, , ((M - 48) * 100000) + ((N - 48) * 10000) + ((O - 48) * 1000) + ((P - 48) *100) + ((Q - 48) * 10) + (R - 48), 7E2
- 0902, Year, 2014, 2035, , K+1945, 7E2
+,Base Trim,0,1,,ABS([Plus Trim] - 1),7E2
+0902,Plus Trim,0,1,,{F:3},7E2
+0902,Seq No,0,999999,,((M - 48) * 100000) + ((N - 48) * 10000) + ((O - 48) * 1000) + ((P - 48) *100) + ((Q - 48) * 10) + (R - 48),7E2
+0902,Year,2014,2035,,K+1945,7E2

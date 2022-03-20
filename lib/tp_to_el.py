@@ -112,9 +112,9 @@ def torquepro_to_enginelink_row(row, variables):
     """
     # Copy unmodified values. Order is preserved. ECU is copied as last
     # element.
-    engine_link = {k : row[k] for k in COPY_FIELDS}
+    engine_link = {k : row[k].strip() for k in COPY_FIELDS}
 
-    formula = row[FORMULA]
+    formula = row[FORMULA].strip()
 
     # Replace variable names
     var_replacements = 0
