@@ -63,6 +63,23 @@ def shift_conv(matchobj):
     formula = '{}*{}'.format(matchobj.group(1), shift)
     return formula
 
+def torquepro_variables(tp_file):
+    """
+    Extract all variable names from the `tp_file` (A TorquePro file) for
+    substitution in the parsing pass. A dictonary is returned with the
+    TorquePro variable name as key and the TorquePro description as
+    the EngineLink variable name.
+    """
+    variables = {}
+    reader = csv.DictReader(tp_file, fieldnames=TP_FIELDS, delimiter=',')
+
+    variables = {row[VAR].lower() : row[DESC] for row in reader}
+
+    # Rewind the file
+    tp_file.seek(0)
+
+    return variables
+
 def torquepro_to_enginelink_formula(tp_formula, variables):
     """
     Replace variable names in the `tp_formula` with names accepted
@@ -97,9 +114,6 @@ def torquepro_to_enginelink_row(row, variables):
     # element.
     engine_link = {k : row[k] for k in COPY_FIELDS}
 
-    # Get the variable name and define EngineLink variable
-    variables[row[VAR]] = row[DESC]
-
     formula = row[FORMULA]
 
     # Replace variable names
@@ -108,7 +122,7 @@ def torquepro_to_enginelink_row(row, variables):
         tp_var = f'val{{{var}}}'
         # Use re.subn in order to recover number of replacements
         formula, replaced = re.subn(tp_var, f'[{variables[var]}]',
-                                    formula)
+                                    formula, flags=re.IGNORECASE)
         var_replacements += replaced
 
     # If there is a tp_formula with variables, EngineLink doesn't want a PID
@@ -176,7 +190,7 @@ def process_file(tp_file, el_file):
     to the `el_file`.
     """
     # Storage for variables
-    variables = {}
+    variables = torquepro_variables(tp_file)
 
     # CSV file reader and writer
     reader = csv.DictReader(tp_file, fieldnames=TP_FIELDS, delimiter=',')
